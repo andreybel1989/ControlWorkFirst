@@ -22,3 +22,33 @@ string[] GetArray()
 
     return array;
 }
+string[] array = GetArray();
+Console.Write($"First arrray: [{String.Join(", ", array)}]\n");
+
+void FilterArray(string[] array)
+{
+
+    int count = 0;
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (array[i].Length <= 3)
+        {
+            count++;
+        }
+    }
+
+    string[] filterArray = new string[count];
+    int filterIndex = 0;
+
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (array[i].Length <= 3)
+        {
+            filterArray[filterIndex] = array[i];
+            filterIndex++;
+        }
+    }
+    Console.Write($"New array: [{String.Join(", ", filterArray)}]\n");
+
+}
+FilterArray(array);
